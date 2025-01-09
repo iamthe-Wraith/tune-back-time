@@ -21,3 +21,11 @@ def get_date() -> dt.datetime | None:
             continue
 
     return date
+
+def get_name(date: dt.datetime) -> str:
+    yes_no = input("Do you want to add a custom name to the playlist? (Y/n)").lower()
+
+    if yes_no == "n":
+        return f"Billboard 100 - {date.strftime('%Y-%m-%d')}"
+    else:
+        return input("Enter the playlist name: ")

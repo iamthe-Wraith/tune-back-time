@@ -1,3 +1,4 @@
+import datetime as dt
 import requests
 from bs4 import BeautifulSoup
 from user_input import get_date
@@ -5,15 +6,12 @@ from user_input import get_date
 class Billboard:
     def __init__(self):
         self.url = "https://www.billboard.com/charts/hot-100"
-        self.date = None
 
-    def get_songs(self):
+    def get_songs(self, date: dt.datetime):
         try:
-            self.date = get_date()
+            print(f"getting songs for date: {date.strftime('%Y-%m-%d')}...")
 
-            print(f"getting songs for date: {self.date.strftime('%Y-%m-%d')}...")
-
-            url = f"{self.url}/{self.date.strftime('%Y-%m-%d')}"
+            url = f"{self.url}/{date.strftime('%Y-%m-%d')}"
 
             headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0"}
 
