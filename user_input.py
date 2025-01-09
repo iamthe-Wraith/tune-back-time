@@ -1,9 +1,9 @@
 import datetime as dt
 
-def get_date():
-    date: dt.datetime = None
+def get_date() -> dt.datetime | None:
+    date: dt.datetime | None = None
 
-    while date == None:
+    while date is None:
         raw_date = input("Enter the date you want to travel to in the format YYYY-MM-DD: ").strip()
 
         if raw_date == "":
